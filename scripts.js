@@ -30,28 +30,44 @@ const militaryHelicopter = [
     'assets/helicoptero-militar-5.jpg'
 ];
 
+
+
 class Gallery {
     constructor(civilImages, militaryImages) {
+        this.civilImages = civilImages;
+        this.militaryImages = militaryImages;
     }
-    
+
     getRandomCivil() {
+        const randomIndex = Math.floor(Math.random() * this.civilImages.length);
+        return this.civilImages[randomIndex];
     }
-    
+
     getRandomMilitary() {
+        const randomIndex = Math.floor(Math.random() * this.militaryImages.length);
+        return this.militaryImages[randomIndex];
     }
-    
+
     getAll() {
+        return this.civilImages.concat(this.militaryImages);
     }
 }
 
 class Painter {
-    constructor() {
+    constructor(createGallery) {
+        this.createGallery
     }
 
     createGallery() {
+        let section = document.createElement("section");
+        document.body.appendChild(section);
+        this.gallery = section
     }
 
     createImageTag(imageUrl) {
+        return `<picture>
+                <img src="ThisIsAnImage.jpg" />
+                </picture>`
     }
 
     paintSingleImage(imageUrl) {
